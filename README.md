@@ -1,6 +1,7 @@
 # Concessionaria - Frontend Web
 
 Aplicação frontend desenvolvida em Angular para consumo da API de gerenciamento de veículos, permitindo cadastro, listagem, edição e exclusão de registros.
+
 ---
 
 ## Tecnologias utilizadas
@@ -9,6 +10,7 @@ Aplicação frontend desenvolvida em Angular para consumo da API de gerenciament
 - TypeScript
 - SCSS
 - RxJS
+
 ---
 
 ## Funcionalidades
@@ -21,19 +23,22 @@ Aplicação frontend desenvolvida em Angular para consumo da API de gerenciament
 - Validação de formulário (incluindo validação de placa)
 - Integração com API REST
 - Interface responsiva e amigável
+
 ---
 
 ## Como executar o projeto
 
 1. Clonar o repositório
-   git clone https://github.com/Thomas-Teo/.git
+   git clone https://github.com/Thomas-Teo/frontend.git
 2. Acessar o diretório
    cd frontend
 3. Instalar dependências
    npm install
 4. Rodar a aplicação
    ng serve
+
 ---
+
 ### A aplicação estará disponível em:
 
 http://localhost:4200
@@ -57,7 +62,9 @@ http://localhost:8080
 - POST /veiculos
 - PUT /veiculos/{id}
 - DELETE /veiculos/{id}
+
 ---
+
 ## Estrutura do projeto:
 
 src/app/<br>
@@ -79,6 +86,7 @@ src/app/<br>
 └── app.component.ts<br>
 
 ---
+
 ## Arquitetura
 
 O projeto segue uma organização baseada em separação de responsabilidades:
