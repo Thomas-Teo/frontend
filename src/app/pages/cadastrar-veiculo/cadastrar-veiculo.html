@@ -1,1 +1,45 @@
-<p>cadastrar-veiculo works!</p>
+<main class="cadastro-veiculo">
+  <section class="card">
+    <h2>Cadastro de Veículo</h2>
+
+    <form [formGroup]="form" (ngSubmit)="salvar()">
+        <div class="form-group">
+            <label for="modelo">Modelo</label>
+            <input id="modelo" type="text" placeholder="Digite o modelo" formControlName="modelo" />
+        </div>
+
+        <div class="form-group">
+            <label for="marca">Marca</label>
+            <input id="marca" type="text" placeholder="Digite a marca" formControlName="marca" />
+        </div>
+
+        <div class="form-group">
+            <label for="ano">Ano</label>
+            <input id="ano" type="number" placeholder="Digite o ano" formControlName="ano" />
+        </div>
+
+        <div class="form-group">
+            <label for="placa">Placa</label>
+            <input id="placa" type="text" placeholder="Digite uma placa valida AAA0000 ou AAA0A00" formControlName="placa" />
+                @if (form.get('placa')?.touched && form.get('placa')?.invalid) {
+
+                    @if (form.get('placa')?.errors?.['required']) {
+                        <span class="erro">A placa é obrigatória</span>
+                    }
+
+                    @if (form.get('placa')?.errors?.['pattern']) {
+                        <span class="erro">Formato inválido. Use AAA0000 ou AAA0A00</span>
+                    }
+
+                }
+        </div>
+
+      <div class="form-group">
+        <label for="valor">Valor</label>
+        <input id="valor" type="number" placeholder="Digite o valor" formControlName="valor" />
+      </div>
+
+      <button type="submit" [disabled]="form.invalid">Salvar</button>
+    </form>
+  </section>
+</main>
