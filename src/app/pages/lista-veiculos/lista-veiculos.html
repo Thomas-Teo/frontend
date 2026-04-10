@@ -1,1 +1,62 @@
-<p>lista-veiculos works!</p>
+<section class="lista-veiculos">
+  <h2>Lista de Veículos</h2>
+
+  <div class="filtros">
+    <input [(ngModel)]="filtros.marca" placeholder="Marca" />
+    <input [(ngModel)]="filtros.modelo" placeholder="Modelo" />
+    <input [(ngModel)]="filtros.ano" type="number" placeholder="Ano" />
+
+    <button type="button" (click)="carregar()">Filtrar</button>
+    <button type="button" (click)="limpar()">Limpar</button>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Modelo</th>
+        <th>Marca</th>
+        <th>Ano</th>
+        <th>Valor</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      @if (loading) {
+        <tr>
+          <td colspan="5">Carregando...</td>
+        </tr>
+      } @else if (veiculos.length === 0) {
+        <tr>
+          <td colspan="5">Nenhum veículo encontrado</td>
+        </tr>
+      } @else {
+        @for (v of veiculos; track v.id) {
+          <tr>
+            <td>{{ v.modelo }}</td>
+            <td>{{ v.marca }}</td>
+            <td>{{ v.ano }}</td>
+            <td>{{ v.valor }}</td>
+            <td>
+              <a [routerLink]="['/cadastro', v.id]">Editar</a>
+              <button type="button" (click)="deletar(v.id!)">Excluir</button>
+            </td>
+          </tr>
+        }
+      }
+    </tbody>
+  </table>
+</section>
+
+<!-- <h2>Lista de Veículos</h2>
+
+<p>Total: {{ veiculos.length }}</p>
+<pre>{{ veiculos | json }}</pre>
+
+@if (loading) {
+  <p>Carregando...</p>
+} @else {
+  @for (v of veiculos; track v.id) {
+    <p>{{ v.modelo }} - {{ v.marca }}</p>
+  }
+} -->

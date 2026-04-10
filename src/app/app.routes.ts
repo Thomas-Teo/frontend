@@ -5,5 +5,6 @@ import { CadastrarVeiculo } from './pages/cadastrar-veiculo/cadastrar-veiculo';
 export const routes: Routes = [
     { path: '', redirectTo: 'veiculos', pathMatch: 'full' },
     { path: 'veiculos', component: ListaVeiculos },
-    { path: 'cadastro', component: CadastrarVeiculo }
+    { path: 'cadastro', component: CadastrarVeiculo },
+    { path: 'cadastro/:id', component: CadastrarVeiculo }
 ];
