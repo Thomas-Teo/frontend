@@ -4,6 +4,7 @@ import { ActivatedRoute, RouterModule } from '@angular/router';
 import { VeiculoService } from '../../service/veiculo-service';
 import { Veiculo } from '../../models/veiculo';
 import { CommonModule } from '@angular/common';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-cadastrar-veiculo',
@@ -70,6 +71,25 @@ export class CadastrarVeiculo implements OnInit{
         this.service.criar(dados).subscribe(() => {
           alert('Criado com sucesso');
         });
+      }
+      error: (error: HttpErrorResponse) => {
+        if (error.status === 400) {
+          const mensagem = error.error?.mensagem ?? 'Erro de validação';
+          alert(mensagem);
+          return;
+        }
+
+        if (error.status === 404) {
+          alert('Recurso não encontrado');
+          return;
+        }
+
+        if (error.status === 0) {
+          alert('Não foi possível conectar ao servidor');
+          return;
+        }
+
+        alert('Erro inesperado ao salvar veículo');
       }
     }
 }

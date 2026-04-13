@@ -16,6 +16,7 @@
         <th>Modelo</th>
         <th>Marca</th>
         <th>Ano</th>
+        <th>Placa</th>
         <th>Valor</th>
         <th>Ações</th>
       </tr>
@@ -36,6 +37,7 @@
             <td>{{ v.modelo }}</td>
             <td>{{ v.marca }}</td>
             <td>{{ v.ano }}</td>
+            <td>{{ v.placa }}</td>
             <td>{{ v.valor }}</td>
             <td>
               <a [routerLink]="['/cadastro', v.id]">Editar</a>
